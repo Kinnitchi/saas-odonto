@@ -21,7 +21,11 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "ts-node prisma/seed.ts"
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "dev": "npm run services:up && next dev --turbopack",
+    "services:up": "docker compose -f backend/infra/compose.yaml up -d",
+    "services:stop": "docker compose -f backend/infra/compose.yaml stop",
+    "services:down": "docker compose -f backend/infra/compose.yaml down -v"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.0",
@@ -70,6 +74,9 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "jest": {
     "moduleFileExtensions": [
