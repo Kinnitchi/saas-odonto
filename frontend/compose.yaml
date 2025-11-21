@@ -1,0 +1,6 @@
+services:
+  database:
+    image: "postgres:16.10-alpine3.22"
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "local_password"
